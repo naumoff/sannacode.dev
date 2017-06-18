@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Team extends Model
 {
+	protected $fillable = ['team_name'];
     public function ownerPlays()
     {
     	return $this->hasMany(Playlist::class,'owner_id','id');
