@@ -19,14 +19,12 @@ class CreatePlaylistTable extends Migration
 	        $table->dateTime('game_datetime')->default(Carbon::now());
             $table->integer('owner_id')->unsigned();
             $table->integer('guest_id')->unsigned();
-			$table->integer('owner_score');
-			$table->integer('quest_score');
-			$table->integer('winner_id')->unsigned();
+			$table->integer('owner_score')->nullable();
+			$table->integer('guest_score')->nullable();
 			$table->enum('status',['expected','completed','cancelled','postponed']);
             $table->timestamps();
             $table->foreign('owner_id')->references('id')->on('teams');
             $table->foreign('guest_id')->references('id')->on('teams');
-            $table->foreign('winner_id')->references('id')->on('teams');
         });
     }
 

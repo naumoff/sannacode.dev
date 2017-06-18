@@ -11,7 +11,9 @@
 |
 */
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+/**
+ * User model faker
+ */
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
 
@@ -22,4 +24,15 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+/**
+ * Team model faker
+ */
+$factory->define(App\Team::class, function (Faker\Generator $faker) {
+
+    return [
+        'team_name' => $faker->unique()->company,
+    ];
+});
+
 
