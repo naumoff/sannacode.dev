@@ -14,31 +14,38 @@
 
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    sannacode
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                @if (Route::has('login'))
+                    <div class="top-right links text-right">
+                        @if (Auth::check())
+                            <a role="button" class="btn btn-primary btn-xs" href="{{ url('/home') }}">Home</a>
+                        @else
+                            <a role="button" class="btn btn-primary btn-xs" href="{{ url('/login') }}">Login</a>
+                            <a role="button" class="btn btn-primary btn-xs" href="{{ url('/register') }}">Register</a>
+                        @endif
+                    </div>
+                @endif
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 page-header">
+                <h1 class="text-center">sannacode</h1>
+            </div>
+        </div>
+        <div cass="row">
+            <div class="col-lg-1 col-md-1"></div>
+            <div class="col-lg-10 col-md-10">
+                <div class="btn-group btn-group-justified">
+                    <a href="#" class="btn btn-primary">Teams List</a>
+                    <a href="#" class="btn btn-primary">Plays List</a>
+                    <a href="#" class="btn btn-primary">CRUD</a>
+                </div>
+            </div>
+            <div class="col-lg-1 col-md-1"></div>
+
+        </div>
+    </div>
     </body>
 </html>
