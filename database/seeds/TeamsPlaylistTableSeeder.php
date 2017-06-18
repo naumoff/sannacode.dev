@@ -31,7 +31,7 @@ class TeamsPlaylistTableSeeder extends Seeder
      */
     public function run()
     {
-        $teams = factory(App\Team::class,25)->make();
+        $teams = factory(App\Team::class,30)->make();
         foreach ($teams AS $key=>$team){
         	$team->save();
         	if($key > 3){
@@ -65,7 +65,6 @@ class TeamsPlaylistTableSeeder extends Seeder
 	        }
         }
     }
-	
 	
 	private function randomMatchDate()
 	{

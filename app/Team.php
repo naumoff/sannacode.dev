@@ -15,4 +15,5 @@ class Team extends Model
     {
     	return $this->hasMany(Playlist::class,'guest_id','id');
     }
+    
 }

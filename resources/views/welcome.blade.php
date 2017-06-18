@@ -38,13 +38,15 @@
             <div class="col-lg-1 col-md-1"></div>
             <div class="col-lg-10 col-md-10">
                 <div class="btn-group btn-group-justified">
-                    <a href="#" class="btn btn-primary">Teams List</a>
-                    <a href="#" class="btn btn-primary">Plays List</a>
+                    <a href="/teams/" class="btn btn-primary">Teams List</a>
+                    <a href="/playlist/" class="btn btn-primary">Plays List</a>
                     <a href="#" class="btn btn-primary">CRUD</a>
                 </div>
             </div>
             <div class="col-lg-1 col-md-1"></div>
-
+        </div>
+        <div class="row">
+            @yield('content')
         </div>
     </div>
     </body>

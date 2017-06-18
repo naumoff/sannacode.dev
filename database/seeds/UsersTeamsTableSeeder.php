@@ -12,7 +12,7 @@ class UsersTeamsTableSeeder extends Seeder
      */
     public function run()
     {
-        $users = factory(App\User::class,50)->create();
+        $users = factory(App\User::class,500)->create();
         $teams = App\Team::all();
         foreach ($users AS $key=>$user){
         	DB::table('team_followers')->insert([
