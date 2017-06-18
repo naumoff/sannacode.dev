@@ -12,6 +12,14 @@
         {{-- JS libraries --}}
         <script type="text/javascript" src="{{mix('/js/app.js')}}"></script>
 
+        {{--jquery-ui--}}
+        <link rel="stylesheet"
+              href="{{asset('/jquery-ui-1.12.1/jquery-ui.css')}}">
+
+        <script type="text/javascript"
+                src="{{asset('/jquery-ui-1.12.1/jquery-ui.js')}}">
+        </script>
+
     </head>
     <body>
     <div class="container-fluid">
@@ -45,7 +53,7 @@
             </div>
             <div class="col-lg-1 col-md-1"></div>
         </div>
-            @include('_partials.errors')
+            @include('_partials.messages')
             @yield('content')
     </div>
     </body>

@@ -17,4 +17,17 @@ class Playlist extends Model
     {
     	return $this->belongsTo(Team::class,'guest_id','id');
     }
+    
+    public static function getGameStatuses()
+    {
+    	$gameStatuses = [
+		    'expected',
+		    'completed',
+		    'cancelled',
+		    'postponed'
+	    ];
+    	
+    	return $gameStatuses;
+    }
+    
 }

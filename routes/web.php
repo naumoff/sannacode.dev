@@ -28,3 +28,4 @@ Route::get('crud/', function(){
 });
 
 Route::post('add-team/','TeamController@addTeam');
+Route::post('add-game/', 'PlaylistController@addGame');

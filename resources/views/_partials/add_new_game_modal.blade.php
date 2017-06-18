@@ -12,27 +12,76 @@
                 </h4>
             </div>
             <div class="modal-body" style="padding:40px 50px;">
-                <form role="form">
+                <form role="form" method="post" action="/add-game">
+                    {{csrf_field()}}
                     <div class="form-group">
-                        <label for="usrname">Owner Team</label>
+                        <label for="owner-team">Owner Team</label>
+                        <select id="owner-team"
+                                name="owner_id"
+                                class="form-control" >
+                            @foreach($data AS $team)
+                            <option value="{{$team->id}}">
+                                {{$team->team_name}}
+                            </option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label for="psw">Guest Team</label>
+                        <label for="guest-team">Guest Team</label>
+                        <select id="guest-team"
+                                name="guest_id"
+                                class="form-control" >
+                            @foreach($data AS $team)
+                                <option value="{{$team->id}}">
+                                    {{$team->team_name}}
+                                </option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label for="psw">Owner Score</label>
-                        <input type="text" class="form-control" id="psw" placeholder="Enter password">
+                        <label for="owner-score">Owner Score</label>
+                        <input type="number"
+                               class="form-control"
+                               id="owner-score"
+                               placeholder="Enter owner score"
+                               min="0"
+                               max="20"
+                               name="owner_score"
+                        >
                     </div>
                     <div class="form-group">
-                        <label for="psw">Guest Score</label>
-                        <input type="text" class="form-control" id="psw" placeholder="Enter password">
+                        <label for="guest-score">Guest Score</label>
+                        <input type="number"
+                               class="form-control"
+                               id="guest-score"
+                               placeholder="Enter guest score"
+                               min="0"
+                               max="20"
+                               name="guest_score" >
                     </div>
                     <div class="form-group">
-                        <label for="psw">Date</label>
-                        <input type="text" class="form-control" id="psw" placeholder="Enter password">
+                        <label for="game-date">Date</label>
+                        <input type="text"
+                               class="form-control"
+                               id="game-date"
+                               name="game_datetime"
+                               placeholder="Enter game date">
                     </div>
-
-                    <button type="submit" class="btn btn-success btn-block">Login</button>
+                    <div class="form-group">
+                        <label for="game-status">Game Status</label>
+                        <select id="game-status"
+                                name="status"
+                                class="form-control" >
+                            @foreach($statuses AS $status)
+                                <option value="{{$status}}">
+                                    {{$status}}
+                                </option>
+                             @endforeach
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block">
+                        Add New Game
+                    </button>
                 </form>
             </div>
             <div class="modal-footer">
@@ -47,8 +96,8 @@
 <script>
     $(document).ready(function(){
         $("#add-game").click(function(){
-            alert("add new game!");
             $("#add-game-modal").modal();
         });
+        $("#game-date").datepicker({});
     });
 </script>

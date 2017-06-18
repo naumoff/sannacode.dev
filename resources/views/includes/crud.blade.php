@@ -34,4 +34,5 @@
 
     @include('_partials.add_new_team_modal')
     @include('_partials.add_new_game_modal')
+
 @endsection
