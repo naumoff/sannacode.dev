@@ -179,6 +179,8 @@ return [
 	
 	    // Laravel IDE helper
 	    Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+	    // Debug bar
+	    Barryvdh\Debugbar\ServiceProvider::class,
 
     ],
 
