@@ -41,7 +41,7 @@ class TeamsPlaylistTableSeeder extends Seeder
         		
         		if($this->currentDate > $matchDate){
 			        DB::table('playlist')->insert([
-				        'game_datetime'=>$matchDate,
+				        'game_date'=>$matchDate,
 				        'owner_id'=>$ownerID,
 				        'guest_id'=>$guestID,
 				        'owner_score'=>rand(0,15),
@@ -52,7 +52,7 @@ class TeamsPlaylistTableSeeder extends Seeder
 			        ]);
 		        }else{
 			        DB::table('playlist')->insert([
-				        'game_datetime'=>$matchDate,
+				        'game_date'=>$matchDate,
 				        'owner_id'=>$ownerID,
 				        'guest_id'=>$guestID,
 				        'owner_score'=> null,

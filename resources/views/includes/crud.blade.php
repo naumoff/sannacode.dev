@@ -25,14 +25,29 @@
     </div>
     <div class="col-lg-6 col-md-6">
         <ul class="nav nav-pills">
-            <li><a href="#">Teams Edit View</a></li>
-            <li><a href="#">Games Edit View</a></li>
+            <li><a id="team-edit" href="/teams-edit">Teams Edit View</a></li>
+            <li><a id="game-edit" href="#">Games Edit View</a></li>
         </ul>
+        <div id="edit-data">
+            @yield('table')
+        </div>
     </div>
     <div class="col-lg-2 col-md-2"></div>
     </div>
 
     @include('_partials.add_new_team_modal')
     @include('_partials.add_new_game_modal')
+
+    {{--<script>--}}
+        {{--$(document).ready(function(){--}}
+            {{--$("#team-edit").click(function(){--}}
+                {{--$("#edit-data").load('teams-edit/');--}}
+            {{--});--}}
+
+            {{--$("#game-edit").click(function(){--}}
+                {{--$("#edit-data").load('games-edit/');--}}
+            {{--});--}}
+        {{--});--}}
+    {{--</script>--}}
 
 @endsection

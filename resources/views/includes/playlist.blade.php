@@ -20,7 +20,7 @@
                 @foreach($playlist AS $key=>$game)
                     <tr>
                         <td>
-                            {{$game->game_datetime}}
+                            {{$game->game_date}}
                         </td>
                         <td>
                             {{$game->ownerTeam->team_name}}

@@ -16,15 +16,15 @@ class CreatePlaylistTable extends Migration
     {
         Schema::create('playlist', function (Blueprint $table) {
             $table->increments('id');
-	        $table->dateTime('game_datetime')->default(Carbon::now());
+	        $table->date('game_date')->default(Carbon::now());
             $table->integer('owner_id')->unsigned();
             $table->integer('guest_id')->unsigned();
 			$table->integer('owner_score')->nullable();
 			$table->integer('guest_score')->nullable();
 			$table->enum('status',['expected','completed','cancelled','postponed']);
             $table->timestamps();
-            $table->foreign('owner_id')->references('id')->on('teams');
-            $table->foreign('guest_id')->references('id')->on('teams');
+            $table->foreign('owner_id')->references('id')->on('teams')->onDelete('cascade');
+            $table->foreign('guest_id')->references('id')->on('teams')->onDelete('cascade');
         });
     }
 

@@ -64,7 +64,7 @@
                         <input type="text"
                                class="form-control"
                                id="game-date"
-                               name="game_datetime"
+                               name="game_date"
                                placeholder="Enter game date">
                     </div>
                     <div class="form-group">
