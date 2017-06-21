@@ -11,13 +11,13 @@ class TeamController extends Controller
 {
     public function index()
     {
-    	$teams = \App\Team::orderBy('created_at','desc')->paginate(15);
+    	$teams = \App\Team::orderBy('updated_at','desc')->paginate(15);
     	return view('includes.teams',compact('teams'));
     }
     
     public function teamsEditIndex()
     {
-	    $teams = \App\Team::orderBy('created_at','desc')->paginate(15);
+	    $teams = \App\Team::orderBy('updated_at','desc')->paginate(15);
     	return view('includes.teams_edit', compact('teams'));
     }
     
@@ -42,7 +42,7 @@ class TeamController extends Controller
 		    }else{
 	    		session()->flash('error_message','New Team was not saved!');
 		    }
-	    	return redirect()->back();
+	    	return redirect('/teams-edit');
 	    }
     }
     

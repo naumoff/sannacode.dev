@@ -16,12 +16,11 @@
                         name="team_name"
                         value="{{$teamModel->team_name}}" >
             </div>
-            <button type="submit" class="btn btn-default">Update</button>
+            <button type="submit" class="btn btn-success">Update</button>
             <a role="button"
                href="/teams-edit"
-               class="btn btn-default"
-            >
-               Cancel
+               class="btn btn-info" >
+                Cancel
             </a>
         </form>
     </div>

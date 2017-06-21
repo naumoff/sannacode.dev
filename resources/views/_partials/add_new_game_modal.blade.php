@@ -98,6 +98,8 @@
         $("#add-game").click(function(){
             $("#add-game-modal").modal();
         });
-        $("#game-date").datepicker({});
+        $("#game-date").datepicker({
+            dateFormat:"yy-mm-dd"
+        });
     });
 </script>

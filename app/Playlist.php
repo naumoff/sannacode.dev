@@ -8,6 +8,15 @@ class Playlist extends Model
 {
     protected $table = 'playlist';
     
+    protected $fillable = [
+    	'game_date',
+	    'owner_id',
+	    'guest_id',
+	    'owner_score',
+	    'guest_score',
+	    'status'
+    ];
+    
     public function ownerTeam()
     {
     	return $this->belongsTo(Team::class,'owner_id','id');
@@ -29,5 +38,4 @@ class Playlist extends Model
     	
     	return $gameStatuses;
     }
-    
 }

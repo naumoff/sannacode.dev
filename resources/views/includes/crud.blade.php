@@ -26,7 +26,7 @@
     <div class="col-lg-6 col-md-6">
         <ul class="nav nav-pills">
             <li><a id="team-edit" href="/teams-edit">Teams Edit View</a></li>
-            <li><a id="game-edit" href="#">Games Edit View</a></li>
+            <li><a id="game-edit" href="/games-edit">Games Edit View</a></li>
         </ul>
         <div id="edit-data">
             @yield('table')
