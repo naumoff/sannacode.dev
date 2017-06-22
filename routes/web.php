@@ -29,14 +29,14 @@ Route::get('crud', function(){
 
 // TEAM CRUD
 Route::post('add-team','TeamController@addTeam');
-Route::get('teams-edit','TeamController@teamsEditIndex');
+Route::match(['get','post'],'teams-edit','TeamController@teamsEditIndex');
 Route::get('team/{id}/delete', 'TeamController@teamDelete');
 Route::get('team/{id}/edit', 'TeamController@teamEdit');
 Route::post('team/{id}/update', 'TeamController@teamUpdate');
 
 // PLAYLIST CRUD
 Route::post('add-game', 'PlaylistController@addGame');
-Route::get('games-edit/','PlaylistController@gamesEditIndex');
+Route::match(['get','post'],'games-edit/','PlaylistController@gamesEditIndex');
 Route::get('game/{id}/delete', 'PlaylistController@gameDelete');
 Route::get('game/{id}/edit', 'PlaylistController@gameEdit');
 Route::post('game/{id}/update', 'PlaylistController@gameUpdate');

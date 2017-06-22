@@ -18,8 +18,12 @@ class PlaylistController extends Controller
     	return view('includes.playlist',compact('playlist'));
     }
     
-    public function gamesEditIndex()
+    public function gamesEditIndex(Request $request)
     {
+    	if(!empty($request)){
+    		dd($request);
+	    }
+    	
     	$playlist = \App\Playlist::with('ownerTeam','guestTeam')->
 	        orderBy('game_date','desc')->
 	        paginate(15);

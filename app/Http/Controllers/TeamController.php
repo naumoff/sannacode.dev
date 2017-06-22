@@ -15,10 +15,21 @@ class TeamController extends Controller
     	return view('includes.teams',compact('teams'));
     }
     
-    public function teamsEditIndex()
+    public function teamsEditIndex(Request $request)
     {
-	    $teams = \App\Team::orderBy('updated_at','desc')->paginate(15);
-    	return view('includes.teams_edit', compact('teams'));
+    	if(isset($request->search)){
+    		$this->validate($request, [
+    			'search'=>'required | min:3 | max:50'
+		    ]);
+		    $teams = \App\Team::where('team_name', 'LIKE', "%{$request->search}%")->
+		        orderBy('updated_at','desc')->
+		        paginate(15);
+		    return view('includes.teams_edit', compact('teams'));
+	    }else{
+		    $teams = \App\Team::orderBy('updated_at','desc')->paginate(15);
+		    return view('includes.teams_edit', compact('teams'));
+	    }
+
     }
     
     public function addTeam(Request $request)
