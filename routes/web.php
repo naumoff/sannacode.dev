@@ -40,6 +40,6 @@ Route::match(['get','post'],'games-edit/','PlaylistController@gamesEditIndex');
 Route::get('game/{id}/delete', 'PlaylistController@gameDelete');
 Route::get('game/{id}/edit', 'PlaylistController@gameEdit');
 Route::post('game/{id}/update', 'PlaylistController@gameUpdate');
-
+Route::get('game/clear-filters', 'PlaylistController@clearFilters');
 
 

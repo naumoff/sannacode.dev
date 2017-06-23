@@ -3,30 +3,66 @@
 @section('table')
 
 <div class="container-fluid">
-    <form>
+    <form method="post" action="/games-edit">
     <div class="row">
+        {{csrf_field()}}
+        <input type="text" name="secret" value="777" hidden>
         <div class="col-lg-3 col-md-3">
             <div class="form-group">
                 <label for="game-date">Date:</label>
-                <input type="text" class="form-control" id="game-date">
+                <input type="text"
+                       class="form-control"
+                       id="game-date"
+                       name="game_date"
+                       value="<?php echo $gameDate = (session('game_date'))? session('game_date'):null; ?>"
+                >
             </div>
         </div>
         <div class="col-lg-3 col-md-3">
             <div class="form-group">
                 <label for="owner">owner:</label>
-                <input type="text" class="form-control" id="owner">
+                <input type="text"
+                       class="form-control"
+                       id="owner"
+                       name="owner"
+                       value="<?php echo $owner = (session('owner'))? session('owner'):null; ?>"
+                >
             </div>
         </div>
         <div class="col-lg-3 col-md-3">
             <div class="form-group">
                 <label for="guest">guest:</label>
-                <input type="text" class="form-control" id="guest">
+                <input type="text"
+                       class="form-control"
+                       id="guest"
+                       name="guest"
+                       value="<?php echo $guest = (session('guest'))? session('guest'):null; ?>"
+                >
             </div>
         </div>
         <div class="col-lg-3 col-md-3">
             <div class="form-group">
-                <label for="status">status:</label>
-                <input type="text" class="form-control" id="status">
+                <label for="status">Select list:</label>
+                <select class="form-control"
+                        id="status"
+                        name="status"
+                >
+                    @foreach($availableStatuses AS $status)
+                        <option value = "{{$status}}"
+                                <?php if($status == session('status')){
+                                	echo "selected";
+                                } ?>
+                        >
+                            {{$status}}
+                        </option>
+                    @endforeach
+                        <option value = ""
+                                <?php
+                                    if(session('status')==null){
+                                    	echo "selected";
+                                    } ?>
+                        >empty</option>
+                </select>
             </div>
         </div>
     </div>
@@ -35,7 +71,7 @@
             <button type="submit" class="btn btn-info btn-xs btn-block">Search</button>
         </div>
         <div class="col-lg-6 col-md-6">
-            <a role="button" href="#" class="btn btn-danger btn-xs btn-block">Clear Filter</a>
+            <a role="button" href="/game/clear-filters" class="btn btn-danger btn-xs btn-block">Clear Filter</a>
         </div>
     </div>
     </form>
