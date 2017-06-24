@@ -17,8 +17,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('home', 'HomeController@index')->name('home');
-
 Route::get('teams', 'TeamController@index');
 
 Route::get('playlist','PlaylistController@index');
@@ -42,4 +40,10 @@ Route::get('game/{id}/edit', 'PlaylistController@gameEdit');
 Route::post('game/{id}/update', 'PlaylistController@gameUpdate');
 Route::get('game/clear-filters', 'PlaylistController@clearFilters');
 
+// CABINET
+Route::get('home', 'HomeController@index')->name('home');
+Route::get('home/teams', 'HomeController@teamsView')->name('home-teams');
 
+//ajax
+Route::post('home/follow-team/','HomeController@followTeam');
+Route::post('home/stop-follow-team/','HomeController@stopFollowTeam');

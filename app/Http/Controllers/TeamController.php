@@ -60,17 +60,15 @@ class TeamController extends Controller
     public function teamDelete($id)
     {
     	$teamModel = \App\Team::find($id);
-//    	dd($teamModel);
     	if($teamModel->id){
     		try{
     			//deleting associated team_followers rows
 			    $teamModel->users()->detach();
-			    $teamModel->save();
-			    
+			    //deleting model
 			    $teamModel->delete();
 			    session()->flash('success_message','Team was deleted!');
 		    }catch(QueryException $e){
-			    session()->flash('error_message',"Team cannot be deleted. Delete associated games first!'");
+			    session()->flash('error_message',"Team was not deleted!");
 		    }
 	    }else{
 		    session()->flash('error_message','Team was not found!');
