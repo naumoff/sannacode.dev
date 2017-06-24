@@ -25,9 +25,16 @@
                     </a>
                 </li>
                 <li>
-                    <a href="home/following">
+                    <script>
+                        if(typeof teamsFollowQty == "undefined"){
+                            var teamsFollowQty = "{{$teamsFollowQty}}";
+                        }
+                    </script>
+                    <a href="#">
                         Teams I follow -
-                        <span class="badge">{{$teamsFollowQty}}</span>
+                        <span class="badge">
+                            <script>document.write(teamsFollowQty)</script>
+                        </span>
                     </a>
                 </li>
             </ul>

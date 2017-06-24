@@ -8,6 +8,7 @@
 <div class="page-header">
     <h2 class="text-center">Team list to follow</h2>
 </div>
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -58,6 +59,7 @@
                     {
                         if(data){
                             alert("you started to follow team "+data);
+                            teamsFollowQty = teamsFollowQty + 1;
                         }
                     }
                 );
