@@ -43,15 +43,13 @@
             </div>
         </div>
         <div cass="row">
-            <div class="col-lg-1 col-md-1"></div>
-            <div class="col-lg-10 col-md-10">
+            <div class="col-lg-12 col-md-12 col-lg-offset-0 col-md-offset-0">
                 <div class="btn-group btn-group-justified">
                     <a href="/teams/" class="btn btn-primary">Teams List</a>
                     <a href="/playlist/" class="btn btn-primary">Plays List</a>
                     <a href="/crud/" class="btn btn-primary">CRUD</a>
                 </div>
             </div>
-            <div class="col-lg-1 col-md-1"></div>
         </div>
             @include('_partials.messages')
             @yield('content')

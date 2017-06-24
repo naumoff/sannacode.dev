@@ -10,8 +10,18 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    {{-- CSS libraries --}}
+    <link href="{{mix('/css/app.css')}}" type="text/css" rel="stylesheet">
+    {{-- JS libraries --}}
+    <script type="text/javascript" src="{{mix('/js/app.js')}}"></script>
+
+    {{--jquery-ui--}}
+    <link rel="stylesheet"
+          href="{{asset('/jquery-ui-1.12.1/jquery-ui.css')}}">
+
+    <script type="text/javascript"
+            src="{{asset('/jquery-ui-1.12.1/jquery-ui.js')}}">
+    </script>
 </head>
 <body>
     <div id="app">
@@ -73,8 +83,5 @@
 
         @yield('content')
     </div>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

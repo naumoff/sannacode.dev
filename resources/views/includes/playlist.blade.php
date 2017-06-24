@@ -1,9 +1,8 @@
 @extends('welcome')
 
 @section('content')
-    <div class="row">
-    <div class="col-lg-2 col-md-2"></div>
-    <div class="col-lg-8 col-md-8">
+<div class="row">
+    <div class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1">
         <h3 class="text-center page-header">Play List</h3>
         <table class="table table-striped">
             <thead>
@@ -42,7 +41,5 @@
             </tbody>
         </table>
         {{ $playlist->links() }}
-    </div>
-    <div class="col-lg-2 col-md-2"></div>
-    </div>
+</div>
 @endsection

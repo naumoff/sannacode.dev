@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -26,7 +27,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    
+	
+	/**
+	 * relationship table
+	 * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+	 */
     public function teams()
     {
     	return $this->belongsToMany(
@@ -35,5 +40,10 @@ class User extends Authenticatable
 		    'user_id',
 		    'team_id'
 		    );
+    }
+    
+    public static function teamsUserFollowsQty(User $user)
+    {
+		return count($user->teams);
     }
 }
