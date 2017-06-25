@@ -47,3 +47,6 @@ Route::get('home/teams', 'HomeController@teamsView')->name('home-teams');
 //ajax
 Route::post('home/follow-team/','HomeController@followTeam');
 Route::post('home/stop-follow-team/','HomeController@stopFollowTeam');
+
+//fake
+Route::get('fake','HomeController@fake');

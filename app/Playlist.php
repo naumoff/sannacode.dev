@@ -38,4 +38,22 @@ class Playlist extends Model
     	
     	return $gameStatuses;
     }
+    
+    public static function getGamesByDate($date)
+    {
+    	$games = \DB::select("
+			SELECT  playlist.game_date, 
+					owner.id AS ownerid, 
+					owner.team_name AS owner, 
+					guest.id AS guestid, 
+					guest.team_name AS guest
+			FROM playlist
+			LEFT JOIN teams AS owner 
+				ON playlist.owner_id = owner.id
+			LEFT JOIN teams AS guest
+				ON playlist.guest_id = guest.id
+			WHERE game_date = '{$date}';") ;
+    	
+    	return $games;
+    }
 }

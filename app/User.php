@@ -46,4 +46,23 @@ class User extends Authenticatable
     {
 		return count($user->teams);
     }
+    
+    public static function getAllFollowersForMatch($ownerID, $guestID)
+    {
+//    	$followers = \DB::select("
+//			SELECT users.id,
+//				users.name,
+//				users.email,
+//				team_followers.team_id
+//			FROM users
+//			LEFT JOIN team_followers
+//			ON users.id = team_followers.user_id
+//			WHERE team_followers.team_id IN({$ownerID},{$guestID});");
+    	
+    	$followers = \DB::table('users')->
+		    leftJoin('team_followers','users.id', '=', 'team_followers.user_id')->
+		    whereIn('team_followers.team_id',[$ownerID,$guestID])->get();
+	    
+    	return $followers;
+    }
 }
